@@ -5,6 +5,7 @@
 
 // Implement a function to determine the state of the doors after the last pass. Return the final result in an array,
 //  with only the door number included in the array if it is open.
+//Optimization -> array should return only perfect squares -> [1,4,9,16,25,36,49,64.81,100]
 
 
 const getDoorsOpen = (numberOfDoors) => {
@@ -30,7 +31,4 @@ const getDoorsOpen = (numberOfDoors) => {
   return result;
 }
 
-
-
-
-console.log(getDoorsOpen(100));
+// console.log(getDoorsOpen(100));

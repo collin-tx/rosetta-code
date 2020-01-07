@@ -3,7 +3,13 @@
 // evaluates to the number 24. If no such solution exists, return "no solution exists".
 
 //second attempt
-function solve (numStr) {
+const solve24 = numStr => {
+  //validating
+  var isNum = /^\d+$/.test(numStr);
+  if (isNum === false || numStr.length !== 4){
+    return 'Invalid input: please try adding only a string of four numbers.';
+  }
+
   let arr = numStr.split('');
   const a = arr[0], b = arr[1], c = arr[2], d = arr[3];
   const opArr = ["+", "-", "/", "*"];
@@ -15,10 +21,7 @@ function solve (numStr) {
   }
   const getRndm = () => Math.floor(Math.random() * 4);
   
-  
-  
   let equations = [];
-  
   
   for (let i=0; i<500; i++){
     let eqA = `(${getRand(arr)} ${opArr[getRndm()]} ${getRand(arr)}) ${opArr[getRndm()]} (${getRand(arr)} ${opArr[getRndm()]} ${getRand(arr)})`;
@@ -38,49 +41,49 @@ function solve (numStr) {
   return result;
 }
 
-console.log(solve('1111'));
+console.log(solve24('48*4'));
 
 
 
 
 
-//first attempt
-function solve24 (numStr) {
-  let arr = numStr.split('');
-  const numberVar = (str) => Number(str);
-  const a = numberVar(arr[0]),
-    b = numberVar(arr[1]),
-    c = numberVar(arr[2]),
-    d = numberVar(arr[3]);
-  const numberArr = [a,b,c,d];
-  const opArr = ["+", "-", "/", "*"];
+// //first attempt
+// function solve24 (numStr) {
+//   let arr = numStr.split('');
+//   const numberVar = (str) => Number(str);
+//   const a = numberVar(arr[0]),
+//     b = numberVar(arr[1]),
+//     c = numberVar(arr[2]),
+//     d = numberVar(arr[3]);
+//   const numberArr = [a,b,c,d];
+//   const opArr = ["+", "-", "/", "*"];
 
-  const addAll = numberArr.reduce((a,b) => a + b);
-  const multiplyAll = numberArr.reduce((a,b) => a * b);
+//   const addAll = numberArr.reduce((a,b) => a + b);
+//   const multiplyAll = numberArr.reduce((a,b) => a * b);
 
-  // better way - randomize - create an array of 16? different equations - return one if it returns 24
+//   // better way - randomize - create an array of 16? different equations - return one if it returns 24
 
   
-  const equations = [];
-  const nums = [];
-  let result = 'no solution exists';
+//   const equations = [];
+//   const nums = [];
+//   let result = 'no solution exists';
   
-  do {
-    const getRndm = () => Math.floor(Math.random() * 4);
-    let eq = `${numberArr[getRndm()]} ${opArr[getRndm()]} ${numberArr[getRndm()]} ${opArr[getRndm()]} ${numberArr[getRndm()]} ${opArr[getRndm()]} ${numberArr[getRndm()]}`;
-    equations.push(eq);
-    nums.push(eval(eq));
-    if (eval(eq) === 24){
-      result = eq;
-    }
-  }
-  while (equations.length < 100);
+//   do {
+//     const getRndm = () => Math.floor(Math.random() * 4);
+//     let eq = `${numberArr[getRndm()]} ${opArr[getRndm()]} ${numberArr[getRndm()]} ${opArr[getRndm()]} ${numberArr[getRndm()]} ${opArr[getRndm()]} ${numberArr[getRndm()]}`;
+//     equations.push(eq);
+//     nums.push(eval(eq));
+//     if (eval(eq) === 24){
+//       result = eq;
+//     }
+//   }
+//   while (equations.length < 100);
 
-  // console.log('nums', nums);
-  // console.log('equations', equations);
+//   // console.log('nums', nums);
+//   // console.log('equations', equations);
 
-  return result;
-}
+//   return result;
+// }
 
-// console.log(solve24('9923'));
+// // console.log(solve24('9923'));
  

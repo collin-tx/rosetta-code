@@ -2,6 +2,8 @@
 // digit from 1 to 9 (inclusive) with repetitions allowed, and returns an arithmetic expression that 
 // evaluates to the number 24. If no such solution exists, return "no solution exists".
 
+// needs refactoring :)
+
 //second attempt
 const solve24 = numStr => {
   //validating

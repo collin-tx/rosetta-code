@@ -43,11 +43,6 @@ const solve24 = numStr => {
   return result;
 }
 
-console.log(solve24('48*4'));
-
-
-
-
 
 // //first attempt
 // function solve24 (numStr) {
